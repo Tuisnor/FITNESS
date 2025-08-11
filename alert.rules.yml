@@ -1,0 +1,11 @@
+groups:
+  - name: workout-alerts
+    rules:
+      - alert: HighWorkoutSessions
+        expr: workout_sessions_total > 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High number of workout sessions detected"
+          description: "Workout sessions total is {{ $value }} for more than 5 minutes"
